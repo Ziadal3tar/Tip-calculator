@@ -1,0 +1,87 @@
+body{ 
+    
+    padding-top: 3%;
+    padding-bottom: 3%;
+    background-color: hsl(185, 41%, 84%);
+}
+h1{
+    font-size: 40px;
+    letter-spacing: 15px;
+    color: hsl(183, 100%, 15%);
+    span{
+        span{
+            cursor: pointer;
+            transition: 0.5s;
+            &:hover{
+                color: rgb(255, 248, 248);
+            }
+        }
+    }
+}
+.input1{
+    background-color: hsl(180, 37%, 93%);
+    direction: rtl;
+
+}
+
+button{
+    background-color: hsl(183, 100%, 15%);
+    box-sizing: border-box;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+    color: hsl(183, 100%, 15%) !important;
+    font-weight: 500;
+    
+} 
+
+.main{
+    border-radius: 30px;
+  
+}
+.mainb{
+    background-color: hsl(183, 100%, 15%);
+   font-size: 12px;
+   border-radius: 5%;
+   button{
+       background-color:  hsl(172, 67%, 45%);
+       transition: 1s;
+       &:hover{
+           background-color: hsl(185, 41%, 84%);;
+       }
+
+   }
+   h2{
+       color:    hsl(172, 67%, 45%);
+   }
+}
+.maina{
+    button{
+        color: white;
+        font-size: 1.2rem;
+        padding: 10px 0;
+        transition: 1s;
+        &:hover{
+            background-color:   hsl(172, 67%, 45%);
+        }
+        
+    }
+    h6{
+        margin-left: -10px;
+    }
+
+}
+.tep{
+    border-radius: 5px;
+    font-size: 1.2rem !important;
+    transition: 1s;
+    &:hover{
+        background-color:   rgb(0, 0, 0) !important;
+        color: rgb(255, 255, 255) !important;
+        
+    }
+}

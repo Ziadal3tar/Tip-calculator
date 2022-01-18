@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <title>Frontend Mentor | Tip calculator app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+        }
+
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+    </style>
+</head>
+
+<body >
+
+
+
+    <div class="   container my-auto">
+        <h1 class=" fw-bold d-flex flex-column align-items-center mb-5">
+            <span> <span>S</span><span>P</span><span>L</span><span>I</span> </span> 
+            <span><span>T</span><span>T</span><span>E</span><span>R</span></span></h1>
+        <div class="main row bg-white  w-75 mx-auto  p-4">
+            <div class=" maina  col-lg-6 mt-4">
+                <div class=" d-flex flex-column  ">
+                    <form action="" [formGroup]="details" >
+                      
+                        <label for="bill">Bill</label>
+                        <div class=" position-relative d-flex justify-content-center flex-column">
+                            <span class=" position-absolute "><i
+                                    class="fas fa-dollar-sign  ms-3 opacity-50"></i></span>
+                                 <div *ngIf="details.get('bill')?.errors != null && details.get('bill')?.touched" class=" alert alert-danger alert my-2  pt-3 pb-1">
+                                     <p *ngIf="details.get('bill')?.errors?.['required']">Bill is requried</p>
+                                     <p *ngIf="details.get('bill')?.errors?.['min']">less than the minimum</p>
+                                     <p *ngIf="details.get('bill')?.errors?.['max']">greater than the maxmum</p>
+                                 </div>
+                                    <input   type="number" id="bill" formControlName="bill" class=" form-control input1 border-0 w-100 py-2 ">
+                        </div>
+<!-- <button type="submit" class=" btn btn-primary">bgfvdc </button> -->
+                    </form>
+                </div>
+               <div>
+                <div class=" ms-2 my-5">
+                    <h6 class=" mb-3 ">Select Tip %</h6>
+                    <div class="row  ">
+                       
+    
+                        <button [disabled]="details.invalid" (click)="calc(0.00, details )" class=  " btn col-lg-3 me-3 me-lg-2 col-5 mb-3">0%</button>
+                        <button [disabled]="details.invalid" (click)="calc(0.05, details)" class=" btn col-lg-3 mx-lg-2 col-5 mb-3">5%</button>
+    
+                        <button [disabled]="details.invalid" (click)="calc(0.10, details)" class=" btn col-lg-3 me-3 ms-lg-2 col-5 mb-3">10%</button>
+                 
+                    
+                        <button [disabled]="details.invalid" (click)="calc(0.15 ,details)" class=" btn col-lg-3 me-lg-2 col-5 mb-3">15%</button>
+    
+    
+                        <button [disabled]="details.invalid" (click)="calc(0.25,details)" class=" btn col-lg-3 me-3  mx-lg-2 col-5  mb-3">25%</button>
+                      
+      
+                        <input [disabled]="details.invalid" type="number" id="tep" (keyup)="calc(tep/100, details )"  class=" tep ps-4 fw-bold col-lg-3 ms-lg-2 border-0 bg-light    col-5 mb-3" placeholder="CUSTOM">
+          
+
+                    </div>
+                   </div>
+               </div>
+
+
+                <div class=" d-flex flex-column mb-4">
+                    <form action="" [formGroup]="details">
+                        <label for="people">Number of People</label>
+                        <div class=" position-relative  d-flex flex-column justify-content-center ">
+                            <span class=" position-absolute "><i
+                                    class="fas fa-user-alt  ms-3 opacity-50"></i></span>
+                                    <div *ngIf="details.get('people')?.errors != null && details.get('people')?.touched" class="  alert-danger alert my-2  pt-3 pb-1">
+                                        <p *ngIf="details.get('people')?.errors?.['required']">The number of people is requried</p>
+                                        <p *ngIf="details.get('people')?.errors?.['min']">less than the minimum</p>
+                                        <p *ngIf="details.get('people')?.errors?.['max']">greater than the maxmum</p>
+                                    </div>
+                                    <input  type="number" id="people" formControlName="people" class=" form-control input1 border-0 w-100 py-2 ">
+                        </div>
+                        
+                    </form>
+                </div>
+
+
+              
+            </div>
+
+            <div class=" col-lg-6">
+                <div class=" mainb w-100  m-3 text-white mx-auto py-4 px-1  p-lg-5">
+                    <div class=" d-flex flex-row justify-content-between py-lg-4 ">
+                        <div>
+                            <h6> Tip Amount</h6>
+                            <p>/person</p>
+                        </div>
+                        <div>
+                            <h2 >
+                                {{"$"+rounded1}}
+                            </h2>
+                        </div>
+                    </div>
+                    <div class=" d-flex justify-content-between py-lg-4 ">
+                        <div>
+
+                            <h6> Total</h6>
+                            <p>/person</p>
+                        </div>
+
+                        <div>
+                            <h2 id="allprice">
+                                {{"$"+rounded2}}
+                            </h2>
+                        </div>
+                    </div>
+                    <button (click)="reset()" class=" btn w-100   mt-5 fw-bold">RESET</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="#">Your Name Here</a>.
+    </div> -->
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+body {
+  padding-top: 3%;
+  padding-bottom: 3%;
+  background-color: #c5e4e7;
+}
+
+h1 {
+  font-size: 40px;
+  letter-spacing: 15px;
+  color: #00494d;
+}
+
+h1 span span {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+h1 span span:hover {
+  color: #fff8f8;
+}
+
+.input1 {
+  background-color: #e7f4f4;
+  direction: rtl;
+}
+
+button {
+  background-color: #00494d;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+  color: #00494d !important;
+  font-weight: 500;
+}
+
+.main {
+  border-radius: 30px;
+}
+
+.mainb {
+  background-color: #00494d;
+  font-size: 12px;
+  border-radius: 5%;
+}
+
+.mainb button {
+  background-color: #26c0ab;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.mainb button:hover {
+  background-color: #c5e4e7;
+}
+
+.mainb h2 {
+  color: #26c0ab;
+}
+
+.maina button {
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.maina button:hover {
+  background-color: #26c0ab;
+}
+
+.maina h6 {
+  margin-left: -10px;
+}
+/*# sourceMappingURL=home.component.css.map */
