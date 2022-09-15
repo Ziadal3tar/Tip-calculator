@@ -8,18 +8,13 @@ Validators
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  
-   details:FormGroup = new FormGroup({
-    bill:new FormControl(null , [Validators.required , Validators.min(10) , Validators.max(10000)]),
-    people:new FormControl(null ,  [Validators.required , Validators.min(1) , Validators.max(20)]),
-    tep:new FormControl(null)
-  })
 
 
-
-  bill:any =( [Validators.required , Validators.min(10) , Validators.max(10000)]);
-  people:any =( [Validators.required , Validators.min(1) , Validators.max(20)]);
-  tep:any =( [Validators.required , Validators.min(1) ]);
+  messageOfPrice=""
+  messageOfPeople=""
+  bill:any
+  people:any
+  tep:any
   Tip_Amount:any="0.00"
   Total:any="0.00"
   allprice:any
@@ -31,41 +26,54 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  
-   
+
+
   }
-  calc(per:number ,form:any): void{
-    this.bill =(<HTMLInputElement>document.getElementById("bill")).value;
-    this.people =(<HTMLInputElement>document.getElementById("people")).value;
-    this.tep =(<HTMLInputElement>document.getElementById("tep")).value;
-  
-  this.Tip_Amount = this.bill*per/(this.people);
 
-  this.Total = this.bill/this.people+this.Tip_Amount
 
+validation(){
+  if (this.bill<=10) {
+    this.messageOfPrice = "less than the minimum"
+  } else if(this.bill>=99999){
+    this.messageOfPrice = "greater than the maxmum"
+  }else{
+    this.messageOfPrice = ""
+  }
+
+
+  if (this.people<1) {
+    this.messageOfPeople = "less than the minimum"
+  } else if(this.people>10){
+    this.messageOfPeople = "greater than the maxmum"
+  }else{
+    this.messageOfPeople = ""
+  }
+}
+
+
+  calc(per:any): void{
+    if (per != null) {
+this.tep = per
+    }
+
+  const totalPrice = this.bill + (this.bill / 100 * this.tep)
+  this.Tip_Amount =  (this.bill / 100 * this.tep) / this.people
+  this.Total = totalPrice / this.people
   this.rounded1 = Math.round( this.Tip_Amount * 100 ) / 100;
   this.rounded2 = Math.round( this.Total * 100 ) / 100;
-  console.log(form);
-    
   }
 
-  // calc1(per:number): void{
-  //   this.bill =(<HTMLInputElement>document.getElementById("bill")).value;
-  //   this.people =(<HTMLInputElement>document.getElementById("people")).value;
-  //   this.tep =(<HTMLInputElement>document.getElementById("tep")).value;
-  
-  // this.Tip_Amount =  this.bill*per/(this.people)
-  
-  // this.Total = this.bill/this.people+this.Tip_Amount
-  
-  // }
   reset(){
-  this.Tip_Amount = "0.00"
-  this.Total = "0.00";
-  (<HTMLInputElement>document.getElementById("bill")).value = '';
-  (<HTMLInputElement>document.getElementById("people")).value ='';
-  (<HTMLInputElement>document.getElementById("tep")).value ='';
+ this.people = ""
+ this.tep = ""
+this.bill = ""
+this.rounded1 = 0.00
+this.rounded2 = 0.00
 
+  }
+  resetclac(){
+    this.rounded1 = 0.00
+this.rounded2 = 0.00
   }
 
 }
